@@ -4,3 +4,10 @@ function salutations(nomSorcier) {
 }
 
 salutations("Lucas");
+
+// Quel est le tarif d'une potion ?
+function tarifPotion(qté, prixPotion) {
+  return prixPotion * qté;
+}
+
+console.log(tarifPotion(3, 10));
