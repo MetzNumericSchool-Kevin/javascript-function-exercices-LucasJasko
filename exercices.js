@@ -45,7 +45,6 @@ function ajouterPotion(inventaire, nomPotion) {
         inventaire.push(potion);
         break;
       } else if (inventaire[i][0] === nomPotion) {
-        console.log("existe !");
         inventaire[i][1] = parseInt(prompt("Quel est le nouveau prix de la potion?"));
         inventaire[i][2] += parseInt(prompt("Quel est la quantité de potion à ajouter?"));
       }
@@ -78,3 +77,22 @@ console.log(inventaire);
 console.log(listeStock(inventaire));
 console.log(listeStockVide(inventaire));
 console.log(inventaire);
+
+// Allons faire de la cueillette, nous avons besoin de plus de potions !
+
+function creerPotionV2(idPotion, ingredients, prix = 10, stock = 1) {
+  const manuelDeFabrication = ["Champignons", "Branche", "Blé"];
+
+  if (JSON.stringify(ingredients) == JSON.stringify(manuelDeFabrication)) {
+    return {
+      id: idPotion,
+      prix: prix,
+      stock: stock,
+    };
+  } else {
+    return new Error("Il manque des ingrédients à cette potion");
+  }
+}
+const ingredients = ["Champignons", "Branche", "Blé"];
+
+console.log(creerPotionV2("Potion de soin", ingredients));
