@@ -24,7 +24,11 @@ console.log(creerPotion("Potion de soin"));
 console.log(creerPotion("Potion de magie", 8, 5));
 
 // Ajout de nouvelles potions dans l'inventaire
-let inventaire = [["potion de magie", 4, 50]];
+let inventaire = [
+  ["potion de magie", 4, 50],
+  ["potion de soin", 2, 70],
+  ["potion de endurance", 6, 20],
+];
 
 function ajouterPotion(inventaire, nomPotion) {
   if (inventaire.length === 0) {
@@ -50,5 +54,27 @@ function ajouterPotion(inventaire, nomPotion) {
   inventaire = inventaire.sort((a, b) => b[1] - a[1]);
 }
 
-ajouterPotion(inventaire, "potion de soin");
+// ajouterPotion(inventaire, "potion de soin");
+console.log(inventaire);
+
+// Cherche moi les potions qui...
+function listeStock(inventaire) {
+  let result;
+  for (let i = 0; i < inventaire.length; i++) {
+    result = inventaire.filter((item) => item[2] != 0);
+  }
+  return result;
+}
+
+function listeStockVide(inventaire) {
+  let result;
+  for (let i = 0; i < inventaire.length; i++) {
+    result = inventaire.filter((item) => item[2] == 0);
+  }
+  return result;
+}
+
+console.log(inventaire);
+console.log(listeStock(inventaire));
+console.log(listeStockVide(inventaire));
 console.log(inventaire);
