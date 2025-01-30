@@ -96,3 +96,33 @@ function creerPotionV2(idPotion, ingredients, prix = 10, stock = 1) {
 const ingredients = ["Champignons", "Branche", "Blé"];
 
 console.log(creerPotionV2("Potion de soin", ingredients));
+
+// Une potion n'est jamais fabriquée en retard, ni en avance d'ailleurs. Elle est fabriquée précisément à l'heure prévue !
+const nomPotion = "potion de soin";
+
+function creerPotionV3(idPotion, ingredients, delay = null, prix = 10, stock = 1) {
+  const manuelDeFabrication = ["Champignons", "Branche", "Blé"];
+  if (JSON.stringify(ingredients) == JSON.stringify(manuelDeFabrication)) {
+    const potion = {
+      id: idPotion,
+      prix: prix,
+      stock: stock,
+    };
+    if (delay) {
+      console.log("Fabrication en cours...");
+      setTimeout(() => {
+        console.log(`Fabircation de ${potion.id} terminé ! Son prix est de ${potion.prix} pièces etnous en stockons ${potion.stock}.`);
+        return potion;
+      }, delay);
+    } else {
+      return {
+        id: idPotion,
+        prix: prix,
+        stock: stock,
+      };
+    }
+  } else {
+    return new Error("Il manque des ingrédients à cette potion");
+  }
+}
+creerPotionV3(nomPotion, ingredients, 2000);
