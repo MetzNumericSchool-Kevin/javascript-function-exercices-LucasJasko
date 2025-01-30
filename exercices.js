@@ -126,3 +126,15 @@ function creerPotionV3(idPotion, ingredients, delay = null, prix = 10, stock = 1
   }
 }
 creerPotionV3(nomPotion, ingredients, 2000);
+
+// Epreuve ultime, la fabrication de plusieurs inventaires indépendants
+function creerInventaire() {
+  const inventaire = [];
+  return inventaire;
+}
+
+const inventaire1 = creerInventaire();
+const inventaire2 = creerInventaire();
+
+console.log(inventaire1);
+console.log(inventaire2);
